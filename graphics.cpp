@@ -34,8 +34,10 @@ void graphics::paintEvent(QPaintEvent *){
             break;
         case 7:
             tron1(painter);
+            break;
         case 8:
             sierpinski(painter);
+            break;
     }
 }
 
