@@ -158,33 +158,24 @@ void graphics::vethaicuc(QPainter &painter){
 }
 
 void graphics::drawRosette(QPainter &painter){
-    painter.setPen(Qt::red);
-    QPolygon polygon;
-    int i=0;
-    int x = width()/2;
-    int y = height()/2;
-    QPoint p(x, y-100);
-    QPoint c(x, y);
-    int g = 10;
-    polygon<<QPoint(p.x(), p.y());
-    for(int i=1; i<=g; i++){
-        QPoint pn = quay(p, c, i*(360/g));
-        polygon << QPoint(pn.x(), pn.y());
-    }
-    painter.setPen(Qt::red);
-    painter.drawPolygon(polygon);
-    for(i; i<g; i++){
-        for(int j=i; j < g; j++){
-            if((i+2) > g){
-                painter.setPen(QColor(random(255), random(255), random(255)));
-                painter.drawLine(polygon.value(i), polygon.value(1));
-                painter.drawLine(polygon.value(i), polygon.value(j));}
-            else{
-                painter.setPen(QColor(random(255), random(255), random(255)));
-                painter.drawLine(polygon.value(i), polygon.value(i+2));
-                painter.drawLine(polygon.value(i), polygon.value(j));}
+    QPolygon polygon, polygon1;
+        int x = width()/2;
+        int y = height()/2;
+        QPoint p(x, y-100);
+        QPoint c(x, y);
+        int d = 10;
+        polygon <<QPoint(p.x(),p.y());
+        for(int i=0; i<d;i++){
+            QPoint pn=quay(p,c,i*((360/d)));
+            polygon1<<QPoint(pn.x(),pn.y());
         }
-    }
+        for(int i=1; i<d; i++){
+            for(int j=0; j<=i; j++){
+                if(j!=i){
+                    painter.drawLine(polygon1.value(i),polygon1.value(j));
+                }
+            }
+        }
 }
 
 
