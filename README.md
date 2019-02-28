@@ -1,4 +1,4 @@
-# comgrap1
+# Computer Graphics lession 2
 
 <br/>Open with Qt Creator 
 <br/>Language using: C++
